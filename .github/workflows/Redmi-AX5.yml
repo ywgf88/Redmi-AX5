@@ -18,8 +18,8 @@ permissions:
   actions: write
 
 env:
-  REPO_URL: https://github.com/sdf8057/ipq6000.git 
-  # REPO_UR: httpts://github.com/breeze303/ipq6000-new.git
+  # REPO_URL: https://github.com/sdf8057/ipq6000.git 
+  REPO_UR: httpts://github.com/breeze303/ipq6000-new.git
 #  REPO_URL: https://github.com/sdf8057/ipq6000.git
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
