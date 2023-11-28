@@ -24,9 +24,6 @@ env:
   REPO_BRANCH: main
   FEEDS_CONF: 6.1.default
   CONFIG_FILE: ./config/ax5-6.1.config
-  DIY_P1_SH: ./scripts/zn-m2/diy-part1.sh
-  DIY_P2_SH: ./scripts/zn-m2/diy-part2.sh
-  DIY_P3_SH: ./scripts/zn-m2/diy-part3.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -88,31 +85,12 @@ jobs:
       run: |
         set -x
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
-
-    - name: Modify feeds
-      run: |
-        set -x
-        chmod +x $DIY_P2_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
-
+      
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
-
-    - name: Load custom configuration
-      run: |
-        set -x
-        [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_P3_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P3_SH
 
     - name: Download package
       id: package
