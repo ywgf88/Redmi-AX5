@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: redmi-ax5 build
+name: redmi-ax5-6.1 build
 
 on:
   repository_dispatch:
@@ -19,11 +19,11 @@ permissions:
 
 env:
   # REPO_URL: https://github.com/sdf8057/ipq6000.git 
-  REPO_URL: https://github.com/breeze303/Redmi-AX5-4.4.git
+  REPO_URL: https://github.com/breeze303/Redmi-AX5-6.1.git
 #  REPO_URL: https://github.com/sdf8057/ipq6000.git
-  REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ./config/ax5.config
+  REPO_BRANCH: main
+  FEEDS_CONF: 6.1.default
+  CONFIG_FILE: ./config/ax5-6.1.config
   DIY_P1_SH: ./scripts/zn-m2/diy-part1.sh
   DIY_P2_SH: ./scripts/zn-m2/diy-part2.sh
   DIY_P3_SH: ./scripts/zn-m2/diy-part3.sh
